@@ -10,33 +10,19 @@ import SwiftUI
 struct SubViewRestaurant: View {
     @Environment(\.dismiss) var dismiss
     var restautant: Restaurant
-    var images = ["testImage", "testImage", "testImage", "testImage"]
+    var images = ["testImage", "russia-flag-xs", "testImage", "russia-flag-xs"]
     @State private var selectedImage = 0
     var body: some View {
         VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                Button(action: {
-                    dismiss()
-                }) {
-                    Text("Back")
-                }.padding(.horizontal,20)
-                .padding(.top, 20)
-            }
             HStack{
                 Text(restautant.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Spacer()
             }
-            Picker(selection: $selectedImage, label: Text("bebra")) {
-                ForEach(0..<images.count) { element in
-                    Image(self.images[element])
-                        .resizable()
-                        .frame(width: 350, height: 250)
-                        
-                }
-            }.pickerStyle(.menu)
+            Image("testImage")
+                .resizable()
+                .frame(width: 370, height: 250)
             HStack {
                 Text(restautant.adress)
                 Spacer()
@@ -57,11 +43,8 @@ struct ViewRestaurant: View {
     @State private var isShow = false
     var body: some View {
         NavigationStack {
-            VStack {
                 List(rest.restaurants) { restaurant in
-                    Button(action: {
-                        self.isShow.toggle()
-                    }) {
+                    NavigationLink(destination: SubViewRestaurant(restautant: restaurant), label: {
                         HStack {
                             Image("russia-flag-xs")
                                 .resizable()
@@ -80,15 +63,12 @@ struct ViewRestaurant: View {
                             Image(systemName: "star.fill")
                                 .foregroundColor(.black)
                         }
-                        .navigationTitle("Restourants")
-                    }
-                    .sheet(isPresented: $isShow) {
-                        SubViewRestaurant(restautant: restaurant)
-                    }
+                    })
+                    .navigationTitle("Restautants")
                 }.onAppear {
                     rest.defaultData()
                 }
-            }
+            
             
         }
         

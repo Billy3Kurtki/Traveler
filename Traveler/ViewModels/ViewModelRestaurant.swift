@@ -14,8 +14,8 @@ class ViewModelRestaurant: ObservableObject {
         restaurants = [
             Restaurant(name: "Bebra", adress: "Ul.bebrova", points: 4.5),
             Restaurant(name: "Soho", adress: "Ul.keglina", points: 0),
-            Restaurant(name: "BebraHouse", adress: "Ul.vafelkina", points: 3.25),
-            Restaurant(name: "StakeHouse", adress: "Ul.igorkina", points: 4)
+            Restaurant(name: "StakeHouse", adress: "Ul.igorkina", points: 4),
+            Restaurant(name: "BebraHouse", adress: "Ul.vafelkina", points: 3.25)
         ]
     }
 }
