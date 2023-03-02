@@ -11,7 +11,6 @@ struct SubViewRestaurant: View {
     @Environment(\.dismiss) var dismiss
     var restautant: Restaurant
     @State private var showFullText = false
-    var images = ["testImage", "russia-flag-xs", "testImage", "russia-flag-xs"]
     @State private var selectedImage = 0
     var body: some View {
         ScrollView {
@@ -27,6 +26,10 @@ struct SubViewRestaurant: View {
                     .frame(width: 370, height: 250)
                 HStack {
                     Text(restautant.adress)
+                    NavigationLink(destination: MapView(restaurant: restautant)
+                        .ignoresSafeArea(.all), label: {
+                        Text("Смотреть на карте")
+                    })
                     Spacer()
                 }.padding(.leading, 30)
                 HStack {
@@ -50,6 +53,7 @@ struct SubViewRestaurant: View {
                     Spacer()
                 }.padding(.leading, 10)
                 Spacer(minLength: 80)
+                
             }.padding()
         }
     }

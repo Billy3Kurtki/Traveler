@@ -17,6 +17,7 @@
 		08832E1929AD502000D32625 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1829AD502000D32625 /* Restaurant.swift */; };
 		08832E1D29AD549B00D32625 /* ViewModelRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1C29AD549B00D32625 /* ViewModelRestaurant.swift */; };
 		08832E2029AD561E00D32625 /* ViewRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1F29AD561E00D32625 /* ViewRestaurant.swift */; };
+		08832E4129B0AF2000D32625 /* ViewMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E4029B0AF2000D32625 /* ViewMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		08832E1829AD502000D32625 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		08832E1C29AD549B00D32625 /* ViewModelRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRestaurant.swift; sourceTree = "<group>"; };
 		08832E1F29AD561E00D32625 /* ViewRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRestaurant.swift; sourceTree = "<group>"; };
+		08832E4029B0AF2000D32625 /* ViewMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				08832E1F29AD561E00D32625 /* ViewRestaurant.swift */,
+				08832E4029B0AF2000D32625 /* ViewMap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08832DBA29AD38F400D32625 /* ContentView.swift in Sources */,
+				08832E4129B0AF2000D32625 /* ViewMap.swift in Sources */,
 				08832E2029AD561E00D32625 /* ViewRestaurant.swift in Sources */,
 				08832E1D29AD549B00D32625 /* ViewModelRestaurant.swift in Sources */,
 				08832DB829AD38F400D32625 /* TravelerApp.swift in Sources */,

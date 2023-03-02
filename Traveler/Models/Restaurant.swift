@@ -12,10 +12,14 @@ class Restaurant: Identifiable {
     var name: String
     var adress: String
     var points: Float?
+    var latitude: Double
+    var longitude: Double
     
-    init(name: String, adress: String, points: Float) {
+    init(name: String, adress: String, points: Float, latitude: Double, longitude: Double) {
         self.name = name
         self.adress = adress
         self.points = points
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }
