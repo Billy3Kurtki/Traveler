@@ -24,14 +24,20 @@ struct SubViewRestaurant: View {
                 Image("testImage")
                     .resizable()
                     .frame(width: 370, height: 250)
-                HStack {
-                    Text(restautant.adress)
+                VStack {
+                    HStack {
+                        Text(restautant.adress)
+                        Spacer()
+                    }
                     NavigationLink(destination: MapView(restaurant: restautant)
                         .ignoresSafeArea(.all), label: {
-                        Text("Смотреть на карте")
-                    })
+                            MapView(restaurant: restautant)
+                                .frame(width: 300, height: 300)
+                                .border(Color.gray, width: 1)
+                                .allowsHitTesting(false)
+                        })
                     Spacer()
-                }.padding(.leading, 30)
+                }.padding()
                 HStack {
                     Text(String(restautant.points!))
                     Image(systemName: "star.fill")
