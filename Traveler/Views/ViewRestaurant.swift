@@ -10,6 +10,7 @@ import SwiftUI
 struct SubViewRestaurant: View {
     @Environment(\.dismiss) var dismiss
     var restautant: Restaurant
+    var images = ["testImage", "testImage", "testImage", "testImage"]
     @State private var showFullText = false
     @State private var selectedImage = 0
     var body: some View {
@@ -20,10 +21,18 @@ struct SubViewRestaurant: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     Spacer()
-                }
-                Image("testImage")
-                    .resizable()
-                    .frame(width: 370, height: 250)
+                }.padding(.leading, 10)
+                TabView {
+                    ForEach(0..<images.count) { image in
+                        Image("\(images[image])")
+                            .resizable()
+                            .scaledToFill()
+                            .overlay(Color.black.opacity(0.4))
+                    }
+                }.tabViewStyle(PageTabViewStyle())
+                    .clipShape(RoundedRectangle(cornerRadius: 3))
+                    .padding()
+                    .frame(width: 390, height: 250)
                 VStack {
                     HStack {
                         Text(restautant.adress)
@@ -58,8 +67,6 @@ struct SubViewRestaurant: View {
                     }.opacity(showFullText ? 1 : 0)
                     Spacer()
                 }.padding(.leading, 10)
-                Spacer(minLength: 80)
-                
             }.padding()
         }
     }
