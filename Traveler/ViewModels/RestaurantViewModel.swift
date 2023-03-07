@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ViewModelRestaurant: ObservableObject {
+final class RestaurantViewModel: ObservableObject {
     @Published var restaurants = [Restaurant]()
     
-    func defaultData() {
-        restaurants = [
+    func fetchData() async -> [Restaurant] {
+        return [
             Restaurant(name: "Bebra", adress: "Ul.bebrova", points: 4.5, latitude: 52.477956, longitude: 4.897070),
             Restaurant(name: "Soho", adress: "Ul.keglina", points: 0, latitude: 52.371956, longitude: 4.897070),
             Restaurant(name: "StakeHouse", adress: "Ul.igorkina", points: 4, latitude: 52.375956, longitude: 4.897070),
