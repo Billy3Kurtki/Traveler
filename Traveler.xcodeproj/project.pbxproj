@@ -15,9 +15,9 @@
 		08832DD329AD38F700D32625 /* TravelerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832DD229AD38F700D32625 /* TravelerUITests.swift */; };
 		08832DD529AD38F700D32625 /* TravelerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832DD429AD38F700D32625 /* TravelerUITestsLaunchTests.swift */; };
 		08832E1929AD502000D32625 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1829AD502000D32625 /* Restaurant.swift */; };
-		08832E1D29AD549B00D32625 /* ViewModelRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1C29AD549B00D32625 /* ViewModelRestaurant.swift */; };
-		08832E2029AD561E00D32625 /* ViewRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1F29AD561E00D32625 /* ViewRestaurant.swift */; };
-		08832E4129B0AF2000D32625 /* ViewMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E4029B0AF2000D32625 /* ViewMap.swift */; };
+		08832E1D29AD549B00D32625 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1C29AD549B00D32625 /* RestaurantViewModel.swift */; };
+		08832E2029AD561E00D32625 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E1F29AD561E00D32625 /* RestaurantView.swift */; };
+		08832E4129B0AF2000D32625 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E4029B0AF2000D32625 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +49,9 @@
 		08832DD229AD38F700D32625 /* TravelerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerUITests.swift; sourceTree = "<group>"; };
 		08832DD429AD38F700D32625 /* TravelerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		08832E1829AD502000D32625 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		08832E1C29AD549B00D32625 /* ViewModelRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRestaurant.swift; sourceTree = "<group>"; };
-		08832E1F29AD561E00D32625 /* ViewRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRestaurant.swift; sourceTree = "<group>"; };
-		08832E4029B0AF2000D32625 /* ViewMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMap.swift; sourceTree = "<group>"; };
+		08832E1C29AD549B00D32625 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		08832E1F29AD561E00D32625 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		08832E4029B0AF2000D32625 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +149,7 @@
 		08832E1B29AD544A00D32625 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				08832E1C29AD549B00D32625 /* ViewModelRestaurant.swift */,
+				08832E1C29AD549B00D32625 /* RestaurantViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -157,8 +157,8 @@
 		08832E1E29AD55FA00D32625 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				08832E1F29AD561E00D32625 /* ViewRestaurant.swift */,
-				08832E4029B0AF2000D32625 /* ViewMap.swift */,
+				08832E1F29AD561E00D32625 /* RestaurantView.swift */,
+				08832E4029B0AF2000D32625 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				08832DBA29AD38F400D32625 /* ContentView.swift in Sources */,
-				08832E4129B0AF2000D32625 /* ViewMap.swift in Sources */,
-				08832E2029AD561E00D32625 /* ViewRestaurant.swift in Sources */,
-				08832E1D29AD549B00D32625 /* ViewModelRestaurant.swift in Sources */,
+				08832E4129B0AF2000D32625 /* MapView.swift in Sources */,
+				08832E2029AD561E00D32625 /* RestaurantView.swift in Sources */,
+				08832E1D29AD549B00D32625 /* RestaurantViewModel.swift in Sources */,
 				08832DB829AD38F400D32625 /* TravelerApp.swift in Sources */,
 				08832E1929AD502000D32625 /* Restaurant.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubViewRestaurant: View {
+struct RestaurantSubView: View {
     @Environment(\.dismiss) var dismiss
     var restautant: Restaurant
     var images = ["testImage", "testImage", "testImage", "testImage"]
@@ -35,7 +35,7 @@ struct SubViewRestaurant: View {
                     .frame(width: 390, height: 250)
                 VStack {
                     HStack {
-                        Text(restautant.adress)
+                        Text(restautant.address)
                         Spacer()
                     }
                     NavigationLink(destination: MapView(restaurant: restautant)
@@ -72,13 +72,13 @@ struct SubViewRestaurant: View {
     }
 }
 
-struct ViewRestaurant: View {
-    @ObservedObject var rest = ViewModelRestaurant()
+struct RestaurantView: View {
+    @ObservedObject var rest = RestaurantViewModel()
     @State private var isShow = false
     var body: some View {
         NavigationStack {
                 List(rest.restaurants) { restaurant in
-                    NavigationLink(destination: SubViewRestaurant(restautant: restaurant), label: {
+                    NavigationLink(destination: RestaurantSubView(restautant: restaurant), label: {
                         HStack {
                             Image("russia-flag-xs")
                                 .resizable()
@@ -88,7 +88,7 @@ struct ViewRestaurant: View {
                             VStack(alignment: .leading) {
                                 Text(restaurant.name)
                                     .foregroundColor(.black)
-                                Text(restaurant.adress)
+                                Text(restaurant.address)
                                     .foregroundColor(.gray)
                             }.padding(.leading, 10)
                             Spacer()
@@ -100,17 +100,17 @@ struct ViewRestaurant: View {
                     })
                     .navigationTitle("Restautants")
                 }.onAppear {
-                    rest.defaultData()
+                    Task {
+                        rest.restaurants = await rest.fetchData()
+                    }
                 }
-            
-            
         }
         
     }
 }
 
-struct ViewRestaurant_Previews: PreviewProvider {
+struct RestaurantView_Previews: PreviewProvider {
     static var previews: some View {
-        ViewRestaurant()
+        RestaurantView()
     }
 }

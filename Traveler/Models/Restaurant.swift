@@ -7,19 +7,11 @@
 
 import Foundation
 
-class Restaurant: Identifiable {
+struct Restaurant: Identifiable {
     var id = UUID()
     var name: String
-    var adress: String
+    var address: String
     var points: Float?
     var latitude: Double
     var longitude: Double
-    
-    init(name: String, adress: String, points: Float, latitude: Double, longitude: Double) {
-        self.name = name
-        self.adress = adress
-        self.points = points
-        self.latitude = latitude
-        self.longitude = longitude
-    }
 }
