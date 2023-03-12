@@ -102,6 +102,9 @@
 		08832DB629AD38F400D32625 /* Traveler */ = {
 			isa = PBXGroup;
 			children = (
+				08832E6529BE1DA900D32625 /* RestaurantCardModule */,
+				08832E6429BE1D8600D32625 /* RestaurantMapModule */,
+				08832E6329BE1D6600D32625 /* RestaurantListModule */,
 				08832E1E29AD55FA00D32625 /* Views */,
 				08832E1B29AD544A00D32625 /* ViewModels */,
 				08832E1729AD4FD700D32625 /* Models */,
@@ -161,6 +164,27 @@
 				08832E4029B0AF2000D32625 /* MapView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		08832E6329BE1D6600D32625 /* RestaurantListModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RestaurantListModule;
+			sourceTree = "<group>";
+		};
+		08832E6429BE1D8600D32625 /* RestaurantMapModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RestaurantMapModule;
+			sourceTree = "<group>";
+		};
+		08832E6529BE1DA900D32625 /* RestaurantCardModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RestaurantCardModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

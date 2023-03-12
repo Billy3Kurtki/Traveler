@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RestaurantSubView: View {
-    @Environment(\.dismiss) var dismiss
     var restautant: Restaurant
     var images = ["testImage", "testImage", "testImage", "testImage"]
     @State private var showFullText = false
@@ -53,7 +52,7 @@ struct RestaurantSubView: View {
                         .foregroundColor(.black)
                     Spacer()
                 }.padding(.leading, 30)
-                Text("Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором.")
+                Text(restautant.description)
                     .onTapGesture {
                         self.showFullText = true
                     }
