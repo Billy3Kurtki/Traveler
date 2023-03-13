@@ -12,6 +12,7 @@ struct RestaurantSubView: View {
     var images = ["testImage", "testImage", "testImage", "testImage"]
     @State private var showFullText = false
     @State private var selectedImage = 0
+    @State private var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -21,7 +22,7 @@ struct RestaurantSubView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }.padding(.leading, 10)
-                TabView {
+                TabView(selection: $selectedImage) {
                     ForEach(0..<images.count) { image in
                         Image("\(images[image])")
                             .resizable()
@@ -32,6 +33,12 @@ struct RestaurantSubView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 3))
                     .padding()
                     .frame(width: 390, height: 250)
+                    .onReceive(timer, perform: { _ in
+                        withAnimation {
+                            selectedImage = selectedImage < images.count ? selectedImage + 1 : 0
+                        }
+                        
+                    })
                 VStack {
                     HStack {
                         Text(restautant.address)
