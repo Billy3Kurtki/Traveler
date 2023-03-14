@@ -1,14 +1,14 @@
 //
-//  ViewRestaurant.swift
+//  SwiftUIView.swift
 //  Traveler
 //
-//  Created by Кирилл Казаков on 28.02.2023.
+//  Created by Кирилл Казаков on 13.03.2023.
 //
 
 import SwiftUI
 
-struct RestaurantSubView: View {
-    var restautant: Restaurant
+struct RestaurantCardView: View {
+    var restautant: RestaurantListModel
     var images = ["testImage", "testImage", "testImage", "testImage"]
     @State private var showFullText = false
     @State private var selectedImage = 0
@@ -41,12 +41,12 @@ struct RestaurantSubView: View {
                     })
                 VStack {
                     HStack {
-                        Text(restautant.address)
+                        Text(restautant.fullAddress)
                         Spacer()
                     }
-                    NavigationLink(destination: MapView(restaurant: restautant)
+                    NavigationLink(destination: RestaurantMapView(restaurant: restautant)
                         .ignoresSafeArea(.all), label: {
-                            MapView(restaurant: restautant)
+                            RestaurantMapView(restaurant: restautant)
                                 .frame(width: 300, height: 300)
                                 .border(Color.gray, width: 1)
                                 .allowsHitTesting(false)
@@ -78,45 +78,3 @@ struct RestaurantSubView: View {
     }
 }
 
-struct RestaurantView: View {
-    @ObservedObject var rest = RestaurantViewModel()
-    @State private var isShow = false
-    var body: some View {
-        NavigationStack {
-                List(rest.restaurants) { restaurant in
-                    NavigationLink(destination: RestaurantSubView(restautant: restaurant), label: {
-                        HStack {
-                            Image("russia-flag-xs")
-                                .resizable()
-                                .renderingMode(.original)
-                                .frame(width: 40, height: 40)
-                                .clipShape(Capsule())
-                            VStack(alignment: .leading) {
-                                Text(restaurant.name)
-                                    .foregroundColor(.black)
-                                Text(restaurant.address)
-                                    .foregroundColor(.gray)
-                            }.padding(.leading, 10)
-                            Spacer()
-                            Text(String(restaurant.points!))
-                                .foregroundColor(.black)
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.black)
-                        }
-                    })
-                    .navigationTitle("Restautants")
-                }.onAppear {
-                    Task {
-                        rest.restaurants = await rest.fetchData()
-                    }
-                }
-        }
-        
-    }
-}
-
-struct RestaurantView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantView()
-    }
-}

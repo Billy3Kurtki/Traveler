@@ -9,9 +9,9 @@ import SwiftUI
 
 import MapKit
 
-struct MapView: UIViewRepresentable {
+struct RestaurantMapView: UIViewRepresentable {
     
-    var restaurant: Restaurant
+    var restaurant: RestaurantListModel
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -22,7 +22,7 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         let annotation = MKPointAnnotation()
         annotation.title = restaurant.name
-        annotation.subtitle = restaurant.address
+        annotation.subtitle = restaurant.fullAddress
         annotation.coordinate = CLLocationCoordinate2DMake(restaurant.latitude, restaurant.longitude)
         mapView.addAnnotation (annotation)
         return mapView
@@ -37,8 +37,8 @@ struct MapView: UIViewRepresentable {
     }
     
     final class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: MapView
-        fileprivate init(_ parent: MapView) {
+        var parent: RestaurantMapView
+        fileprivate init(_ parent: RestaurantMapView) {
             self.parent = parent
         }
     }
