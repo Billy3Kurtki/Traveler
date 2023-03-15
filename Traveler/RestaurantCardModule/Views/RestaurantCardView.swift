@@ -6,13 +6,23 @@
 //
 
 import SwiftUI
+private enum Layout {
+    static let opacityFull: Double = 1
+    static let opacityNull: Double = 0
+    static let unrolledTextHeight: CGFloat = 90
+}
+
+private enum Consts {
+    static let paddingLow: CGFloat = 10
+    static let paddingMedium: CGFloat = 30
+    static let timerPeriod: CFTimeInterval = 3
+}
 
 struct RestaurantCardView: View {
     var restautant: RestaurantListModel
-    var images = ["testImage", "testImage", "testImage", "testImage"]
     @State private var showFullText = false
-    @State private var selectedImage = 0
-    @State private var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    @State private var selectedImageIndex = 0
+    @State private var timer = Timer.publish(every: Consts.timerPeriod, on: .main, in: .common).autoconnect()
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -22,9 +32,9 @@ struct RestaurantCardView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }.padding(.leading, 10)
-                TabView(selection: $selectedImage) {
-                    ForEach(0..<images.count) { image in
-                        Image("\(images[image])")
+                TabView(selection: $selectedImageIndex) {
+                    ForEach(0..<restautant.images.count) { imageIndex in
+                        Image("\(restautant.images[imageIndex].name)")
                             .resizable()
                             .scaledToFill()
                             .overlay(Color.black.opacity(0.4))
@@ -35,7 +45,7 @@ struct RestaurantCardView: View {
                     .frame(width: 390, height: 250)
                     .onReceive(timer, perform: { _ in
                         withAnimation {
-                            selectedImage = selectedImage < images.count ? selectedImage + 1 : 0
+                            selectedImageIndex = selectedImageIndex < restautant.images.count ? selectedImageIndex + 1 : 0
                         }
                         
                     })
@@ -58,21 +68,21 @@ struct RestaurantCardView: View {
                     Image(systemName: "star.fill")
                         .foregroundColor(.black)
                     Spacer()
-                }.padding(.leading, 30)
+                }.padding(.leading, Consts.paddingMedium)
                 Text(restautant.description)
                     .onTapGesture {
                         self.showFullText = true
                     }
-                    .frame(width: 350, height: showFullText ? nil : 90)
+                    .frame(width: 350, height: showFullText ? nil : Layout.unrolledTextHeight)
                     .truncationMode(.tail)
                 HStack {
                     Button(action: {
                         self.showFullText = false
                     }) {
                         Text("Скрыть")
-                    }.opacity(showFullText ? 1 : 0)
+                    }.opacity(showFullText ? Layout.opacityFull : Layout.opacityNull)
                     Spacer()
-                }.padding(.leading, 10)
+                }.padding(.leading, Consts.paddingLow)
             }.padding()
         }
     }

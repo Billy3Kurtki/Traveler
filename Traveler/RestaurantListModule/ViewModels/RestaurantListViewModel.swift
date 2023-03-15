@@ -14,7 +14,7 @@ class RestaurantListViewModel: ObservableObject {
         let rest = RestaurantViewModel().restaurants
         var k = 0
         while(k < rest.count) {
-            restaurants.append(RestaurantListModel(name: rest[k].name, fullAddress: "\(rest[k].country), \(rest[k].city), \(rest[k].street).", points: rest[k].points, latitude: rest[k].latitude, longitude: rest[k].longitude, description: rest[k].description))
+            restaurants.append(RestaurantListModel(name: rest[k].name, fullAddress: "\(rest[k].country), \(rest[k].city), \(rest[k].street).", points: rest[k].points, latitude: rest[k].latitude, longitude: rest[k].longitude, description: rest[k].description, images: rest[k].images))
             k += 1
         }
     }

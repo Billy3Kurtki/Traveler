@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RestaurantListView: View {
     @ObservedObject var rest = RestaurantListViewModel()
-    @State private var isShow = false
     var body: some View {
         NavigationStack {
                 List(rest.restaurants) { restaurant in

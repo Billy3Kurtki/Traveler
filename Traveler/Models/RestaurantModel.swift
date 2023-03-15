@@ -9,12 +9,18 @@ import Foundation
 
 struct RestaurantModel: Identifiable {
     var id = UUID()
-    var name: String
-    var country: String
-    var city: String
-    var street: String
-    var points: Float?
-    var latitude: Double
-    var longitude: Double
-    var description: String
+    let name: String
+    let country: String
+    let city: String
+    let street: String
+    let points: Float?
+    let latitude: Double
+    let longitude: Double
+    let description: String
+    let images: [Images]
+}
+
+struct Images {
+    var id = UUID()
+    let name: String
 }
