@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct RestaurantListModel: Identifiable {
-    var id = UUID()
+struct RestaurantSnippet: Identifiable {
+    let id = UUID()
     let name: String
     let fullAddress: String
     let points: Float?
-    let latitude: Double
-    let longitude: Double
-    let description: String
-    let images: [Images]
 }
 

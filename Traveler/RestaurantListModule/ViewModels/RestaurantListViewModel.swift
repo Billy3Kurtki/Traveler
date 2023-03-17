@@ -7,14 +7,20 @@
 
 import Foundation
 
-class RestaurantListViewModel: ObservableObject {
-    @Published var restaurants = [RestaurantListModel]()
+final class RestaurantListViewModel: ObservableObject {
+    @Published var restaurants = [RestaurantSnippet]()
     
     init() {
-        let rest = RestaurantViewModel().restaurants
+        let rest = RestaurantCardViewModel().restaurants
         var k = 0
         while(k < rest.count) {
-            restaurants.append(RestaurantListModel(name: rest[k].name, fullAddress: "\(rest[k].country), \(rest[k].city), \(rest[k].street).", points: rest[k].points, latitude: rest[k].latitude, longitude: rest[k].longitude, description: rest[k].description, images: rest[k].images))
+            let item = RestaurantSnippetViewModel(
+                name: rest[k].name,
+                country: rest[k].country,
+                city: rest[k].city,
+                street: rest[k].street,
+                points: rest[k].points ?? 0)
+            restaurants.append(item.restaurant)
             k += 1
         }
     }

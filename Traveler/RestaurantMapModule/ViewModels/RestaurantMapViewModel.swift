@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+final class RestaurantMapViewModel: ObservableObject { //не используется(мб пока что)
+    //@Published var rests = RestaurantCardViewModel()
+    
+}

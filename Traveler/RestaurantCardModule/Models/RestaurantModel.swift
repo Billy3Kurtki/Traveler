@@ -8,7 +8,7 @@
 import Foundation
 
 struct RestaurantModel: Identifiable {
-    var id = UUID()
+    let id = UUID()
     let name: String
     let country: String
     let city: String
@@ -20,7 +20,7 @@ struct RestaurantModel: Identifiable {
     let images: [Images]
 }
 
-struct Images {
-    var id = UUID()
-    let name: String
+struct Images { //не хочу менять на Image, тк придётся во всех вью писать Image(url: URL(string: "sss")!), вместо Image("sss")
+    let url: URL
 }
+

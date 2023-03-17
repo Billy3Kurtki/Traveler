@@ -11,8 +11,7 @@ import MapKit
 
 struct RestaurantMapView: UIViewRepresentable {
     
-    var restaurant: RestaurantListModel
-    
+    var restaurant: RestaurantModel
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
@@ -22,7 +21,7 @@ struct RestaurantMapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         let annotation = MKPointAnnotation()
         annotation.title = restaurant.name
-        annotation.subtitle = restaurant.fullAddress
+        annotation.subtitle = "\(restaurant.country), \(restaurant.city), \(restaurant.street)" //сделано так, поскольку осн модель юзал(не прошедшую через вьюМодель
         annotation.coordinate = CLLocationCoordinate2DMake(restaurant.latitude, restaurant.longitude)
         mapView.addAnnotation (annotation)
         return mapView

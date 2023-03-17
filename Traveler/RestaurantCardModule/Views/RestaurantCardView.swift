@@ -19,7 +19,8 @@ private enum Consts {
 }
 
 struct RestaurantCardView: View {
-    var restautant: RestaurantListModel
+    var restaurant: RestaurantModel
+
     @State private var showFullText = false
     @State private var selectedImageIndex = 0
     @State private var timer = Timer.publish(every: Consts.timerPeriod, on: .main, in: .common).autoconnect()
@@ -27,14 +28,14 @@ struct RestaurantCardView: View {
         ScrollView {
             VStack(spacing: 20) {
                 HStack{
-                    Text(restautant.name)
+                    Text(restaurant.name)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     Spacer()
-                }.padding(.leading, 10)
+                }.padding(.leading, Consts.paddingLow)
                 TabView(selection: $selectedImageIndex) {
-                    ForEach(0..<restautant.images.count) { imageIndex in
-                        Image("\(restautant.images[imageIndex].name)")
+                    ForEach(0..<restaurant.images.count) { image in
+                        Image("\(restaurant.images[image].url)")
                             .resizable()
                             .scaledToFill()
                             .overlay(Color.black.opacity(0.4))
@@ -45,18 +46,18 @@ struct RestaurantCardView: View {
                     .frame(width: 390, height: 250)
                     .onReceive(timer, perform: { _ in
                         withAnimation {
-                            selectedImageIndex = selectedImageIndex < restautant.images.count ? selectedImageIndex + 1 : 0
+                            selectedImageIndex = selectedImageIndex < restaurant.images.count ? selectedImageIndex + 1 : 0
                         }
                         
                     })
                 VStack {
                     HStack {
-                        Text(restautant.fullAddress)
+                        Text("\(restaurant.country), \(restaurant.city), \(restaurant.street)")
                         Spacer()
                     }
-                    NavigationLink(destination: RestaurantMapView(restaurant: restautant)
+                    NavigationLink(destination: RestaurantMapView(restaurant: restaurant)
                         .ignoresSafeArea(.all), label: {
-                            RestaurantMapView(restaurant: restautant)
+                            RestaurantMapView(restaurant: restaurant)
                                 .frame(width: 300, height: 300)
                                 .border(Color.gray, width: 1)
                                 .allowsHitTesting(false)
@@ -64,12 +65,12 @@ struct RestaurantCardView: View {
                     Spacer()
                 }.padding()
                 HStack {
-                    Text(String(restautant.points!))
+                    Text(String(restaurant.points!))
                     Image(systemName: "star.fill")
                         .foregroundColor(.black)
                     Spacer()
                 }.padding(.leading, Consts.paddingMedium)
-                Text(restautant.description)
+                Text(restaurant.description)
                     .onTapGesture {
                         self.showFullText = true
                     }
