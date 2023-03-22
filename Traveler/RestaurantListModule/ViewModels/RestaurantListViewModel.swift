@@ -8,7 +8,7 @@
 import Foundation
 
 final class RestaurantListViewModel: ObservableObject {
-    @Published var restaurants = [RestaurantSnippet]()
+    @Published var restaurants = [RestaurantSnippetViewModel]()
     
     init() {
         let rest = RestaurantCardViewModel().restaurants
@@ -20,7 +20,7 @@ final class RestaurantListViewModel: ObservableObject {
                 city: rest[k].city,
                 street: rest[k].street,
                 points: rest[k].points ?? 0)
-            restaurants.append(item.restaurant)
+            restaurants.append(item)
             k += 1
         }
     }

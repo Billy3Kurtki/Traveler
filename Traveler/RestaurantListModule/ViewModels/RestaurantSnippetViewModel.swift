@@ -8,9 +8,14 @@
 import Foundation
 
 final class RestaurantSnippetViewModel {
-    var restaurant: RestaurantSnippet
+    let id = UUID()
+    let name: String
+    let fullAddress: String
+    let points: Float?
     
     init(name: String, country: String, city: String, street: String, points: Float) {
-        restaurant = RestaurantSnippet(name: name, fullAddress: "\(country), \(city), \(street).", points: points)
+        self.name = name
+        self.fullAddress = "\(country), \(city), \(street)."
+        self.points = points
     }
 }

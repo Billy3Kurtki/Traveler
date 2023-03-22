@@ -6,24 +6,24 @@
 //
 
 import SwiftUI
-private enum Layout {
-    static let opacityFull: Double = 1
-    static let opacityNull: Double = 0
-    static let unrolledTextHeight: CGFloat = 90
-}
-
-private enum Consts {
-    static let paddingLow: CGFloat = 10
-    static let paddingMedium: CGFloat = 30
-    static let timerPeriod: CFTimeInterval = 3
-}
 
 struct RestaurantCardView: View {
     var restaurant: RestaurantModel
+    private enum Layout {
+        static let opacityFull: CGFloat = 1
+        static let opacityNull: CGFloat = 0
+        static let unrolledTextHeight: CGFloat = 90
+    }
 
+    private enum Consts {
+        static let paddingLow: CGFloat = 10
+        static let paddingMedium: CGFloat = 30
+        static let timerPeriod: CFTimeInterval = 3
+    }
     @State private var showFullText = false
     @State private var selectedImageIndex = 0
     @State private var timer = Timer.publish(every: Consts.timerPeriod, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {

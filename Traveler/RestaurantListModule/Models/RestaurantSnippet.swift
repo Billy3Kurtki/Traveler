@@ -10,7 +10,13 @@ import Foundation
 struct RestaurantSnippet: Identifiable {
     let id = UUID()
     let name: String
-    let fullAddress: String
+    let country: String
+    let city: String
+    let street: String
     let points: Float?
+    let latitude: Double
+    let longitude: Double
+    let description: String
+    let images: [Images]
 }
 

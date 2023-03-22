@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RestaurantListView: View {
     @ObservedObject var vm = RestaurantListViewModel()
-    func getFullModel(restaurant: RestaurantSnippet) -> RestaurantModel {
+    
+    func getFullModel(restaurant: RestaurantSnippetViewModel) -> RestaurantModel {
         @ObservedObject var vm = RestaurantCardViewModel()
         let list = vm.restaurants
         
@@ -18,9 +19,10 @@ struct RestaurantListView: View {
         }
         return RestaurantModel(name: "default", country: "default", city: "default", street: "default", points: 0, latitude: 25.4, longitude: 24.2, description: "default", images: [])
     }
+    
     var body: some View {
         NavigationStack {
-            List(vm.restaurants) { restaurant in
+            List(vm.restaurants, id:\.id) { restaurant in
                 NavigationLink(destination: RestaurantCardView(restaurant: getFullModel(restaurant: restaurant))
                 , label: {
                     HStack {
