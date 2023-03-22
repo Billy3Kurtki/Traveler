@@ -17,10 +17,10 @@ struct RestaurantModel: Identifiable {
     let latitude: Double
     let longitude: Double
     let description: String
-    let images: [Images]
+    let images: [ImageModel]
 }
 
-struct Images { //не хочу менять на Image, тк придётся во всех вью писать Image(url: URL(string: "sss")!), вместо Image("sss")
+struct ImageModel { //не хочу менять на Image, тк придётся во всех вью писать Image(url: URL(string: "sss")!), вместо Image("sss")
     let url: URL
 }
 

@@ -17,6 +17,6 @@ struct RestaurantSnippet: Identifiable {
     let latitude: Double
     let longitude: Double
     let description: String
-    let images: [Images]
+    let images: [ImageModel]
 }
 
