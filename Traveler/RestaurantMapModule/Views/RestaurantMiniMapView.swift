@@ -1,29 +1,21 @@
 //
-//  MapView.swift
+//  RestaurantMiniMapView.swift
 //  Traveler
 //
-//  Created by Кирилл Казаков on 02.03.2023.
+//  Created by Кирилл Казаков on 23.03.2023.
 //
 
 import SwiftUI
-
 import MapKit
 
-struct RestaurantMapView: UIViewRepresentable {
+struct RestaurantMiniMapView: UIViewRepresentable {
     
     var restaurant: RestaurantMapViewModel
     
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
     func makeUIView(context: Context) -> some MKMapView {
         let mapView = MKMapView()
-        mapView.delegate = context.coordinator
         let annotation = MKPointAnnotation()
         annotation.title = restaurant.name
-        annotation.subtitle = restaurant.address
         annotation.coordinate = CLLocationCoordinate2DMake(restaurant.latitude, restaurant.longitude)
         mapView.addAnnotation (annotation)
         return mapView
@@ -37,10 +29,4 @@ struct RestaurantMapView: UIViewRepresentable {
         uiView.setRegion(region, animated: true)
     }
     
-    final class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: RestaurantMapView
-        fileprivate init(_ parent: RestaurantMapView) {
-            self.parent = parent
-        }
-    }
 }

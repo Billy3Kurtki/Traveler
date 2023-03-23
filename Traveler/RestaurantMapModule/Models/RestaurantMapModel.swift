@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+struct RestaurantMapModel: Identifiable {
+    let id = UUID()
+    let name: String
+    let country: String
+    let city: String
+    let street: String
+    let points: Float?
+    let latitude: Double
+    let longitude: Double
+    let description: String
+    let images: [ImageModel]
+}

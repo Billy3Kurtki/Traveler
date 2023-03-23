@@ -41,9 +41,9 @@ struct RestaurantCardView: View {
                         Text("\(restaurant.country), \(restaurant.city), \(restaurant.street)")
                         Spacer()
                     }
-                    NavigationLink(destination: RestaurantMapView(restaurant: restaurant)
+                    NavigationLink(destination: RestaurantMapView(restaurant: RestaurantMapViewModel(restaurant: restaurant))
                         .ignoresSafeArea(.all), label: {
-                            RestaurantMapView(restaurant: restaurant)
+                            RestaurantMiniMapView(restaurant: RestaurantMapViewModel(restaurant: restaurant))
                                 .frame(width: 300, height: 300)
                                 .border(Color.gray, width: 1)
                                 .allowsHitTesting(false)

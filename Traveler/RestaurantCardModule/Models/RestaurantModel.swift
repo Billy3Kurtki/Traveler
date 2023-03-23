@@ -20,7 +20,7 @@ struct RestaurantModel: Identifiable {
     let images: [ImageModel]
 }
 
-struct ImageModel { //не хочу менять на Image, тк придётся во всех вью писать Image(url: URL(string: "sss")!), вместо Image("sss")
+struct ImageModel { 
     let url: URL
 }
 

@@ -7,7 +7,19 @@
 
 import Foundation
 
-final class RestaurantMapViewModel: ObservableObject { //не используется(мб пока что)
-    //@Published var rests = RestaurantCardViewModel()
+final class RestaurantMapViewModel: Identifiable {
+    let id = UUID()
+    let name: String
+    let address: String
+    let points: Float?
+    let latitude: Double
+    let longitude: Double
     
+    init(restaurant: RestaurantModel) {
+        self.name = restaurant.name
+        self.address = "\(restaurant.country), \(restaurant.city), \(restaurant.street)"
+        self.points = restaurant.points
+        self.latitude = restaurant.latitude
+        self.longitude = restaurant.longitude
+    }
 }

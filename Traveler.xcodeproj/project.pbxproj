@@ -24,6 +24,7 @@
 		08832E9429BF858600D32625 /* RestaurantMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E9329BF858600D32625 /* RestaurantMapViewModel.swift */; };
 		08832E9629C09EBD00D32625 /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E9529C09EBD00D32625 /* RestaurantListViewModel.swift */; };
 		08832EA029C3C6F900D32625 /* RestaurantSnippetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E9F29C3C6F900D32625 /* RestaurantSnippetViewModel.swift */; };
+		0891AA8229CCD67A00423DA9 /* RestaurantMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0891AA8129CCD67A00423DA9 /* RestaurantMiniMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		08832E9329BF858600D32625 /* RestaurantMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewModel.swift; sourceTree = "<group>"; };
 		08832E9529C09EBD00D32625 /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
 		08832E9F29C3C6F900D32625 /* RestaurantSnippetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSnippetViewModel.swift; sourceTree = "<group>"; };
+		0891AA8129CCD67A00423DA9 /* RestaurantMiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMiniMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				08832E4029B0AF2000D32625 /* RestaurantMapView.swift */,
+				0891AA8129CCD67A00423DA9 /* RestaurantMiniMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08832EA029C3C6F900D32625 /* RestaurantSnippetViewModel.swift in Sources */,
+				0891AA8229CCD67A00423DA9 /* RestaurantMiniMapView.swift in Sources */,
 				08832DBA29AD38F400D32625 /* ContentView.swift in Sources */,
 				08832E9429BF858600D32625 /* RestaurantMapViewModel.swift in Sources */,
 				08832E8129BF698600D32625 /* RestaurantCardView.swift in Sources */,
