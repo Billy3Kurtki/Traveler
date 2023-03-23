@@ -11,10 +11,11 @@ final class RestaurantListViewModel: ObservableObject {
     @Published var restaurants = [RestaurantSnippetViewModel]()
     
     init() {
-        let rest = RestaurantCardViewModel().restaurants
+        let rest = FetchDataClass().fetchData()
         var k = 0
         while(k < rest.count) {
             let item = RestaurantSnippetViewModel(
+                id: rest[k].id,
                 name: rest[k].name,
                 country: rest[k].country,
                 city: rest[k].city,

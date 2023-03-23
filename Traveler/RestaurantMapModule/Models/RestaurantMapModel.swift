@@ -8,7 +8,7 @@
 import Foundation
 
 struct RestaurantMapModel: Identifiable {
-    let id = UUID()
+    let id: String
     let name: String
     let country: String
     let city: String

@@ -25,6 +25,7 @@
 		08832E9629C09EBD00D32625 /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E9529C09EBD00D32625 /* RestaurantListViewModel.swift */; };
 		08832EA029C3C6F900D32625 /* RestaurantSnippetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08832E9F29C3C6F900D32625 /* RestaurantSnippetViewModel.swift */; };
 		0891AA8229CCD67A00423DA9 /* RestaurantMiniMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0891AA8129CCD67A00423DA9 /* RestaurantMiniMapView.swift */; };
+		0891AA8529CCE4A200423DA9 /* FetchDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0891AA8429CCE4A200423DA9 /* FetchDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		08832E9529C09EBD00D32625 /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
 		08832E9F29C3C6F900D32625 /* RestaurantSnippetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSnippetViewModel.swift; sourceTree = "<group>"; };
 		0891AA8129CCD67A00423DA9 /* RestaurantMiniMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMiniMapView.swift; sourceTree = "<group>"; };
+		0891AA8429CCE4A200423DA9 /* FetchDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				08832E6529BE1DA900D32625 /* RestaurantCardModule */,
 				08832E6429BE1D8600D32625 /* RestaurantMapModule */,
 				08832DB729AD38F400D32625 /* TravelerApp.swift */,
+				0891AA8329CCE48F00423DA9 /* FetchData */,
 				08832DB929AD38F400D32625 /* ContentView.swift */,
 				08832DBB29AD38F700D32625 /* Assets.xcassets */,
 				08832DBD29AD38F700D32625 /* Preview Content */,
@@ -256,6 +259,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0891AA8329CCE48F00423DA9 /* FetchData */ = {
+			isa = PBXGroup;
+			children = (
+				0891AA8429CCE4A200423DA9 /* FetchDataClass.swift */,
+			);
+			path = FetchData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,6 +400,7 @@
 				08832EA029C3C6F900D32625 /* RestaurantSnippetViewModel.swift in Sources */,
 				0891AA8229CCD67A00423DA9 /* RestaurantMiniMapView.swift in Sources */,
 				08832DBA29AD38F400D32625 /* ContentView.swift in Sources */,
+				0891AA8529CCE4A200423DA9 /* FetchDataClass.swift in Sources */,
 				08832E9429BF858600D32625 /* RestaurantMapViewModel.swift in Sources */,
 				08832E8129BF698600D32625 /* RestaurantCardView.swift in Sources */,
 				08832E8C29BF84B200D32625 /* RestaurantSnippet.swift in Sources */,

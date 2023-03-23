@@ -10,20 +10,10 @@ import SwiftUI
 struct RestaurantListView: View {
     @ObservedObject var vm = RestaurantListViewModel()
     
-    func getFullModel(restaurant: RestaurantSnippetViewModel) -> RestaurantModel {
-        @ObservedObject var vm = RestaurantCardViewModel()
-        let list = vm.restaurants
-        
-        if let r = list.first(where: {$0.name == restaurant.name}) {
-            return r
-        }
-        return RestaurantModel(name: "default", country: "default", city: "default", street: "default", points: 0, latitude: 25.4, longitude: 24.2, description: "default", images: [])
-    }
-    
     var body: some View {
         NavigationStack {
             List(vm.restaurants, id:\.id) { restaurant in
-                NavigationLink(destination: RestaurantCardView(restaurant: getFullModel(restaurant: restaurant))
+                NavigationLink(destination: RestaurantCardView(restaurant: RestaurantCardViewModel(id: restaurant.id))
                 , label: {
                     HStack {
                         Image("russia-flag-xs")
@@ -47,7 +37,6 @@ struct RestaurantListView: View {
                 .navigationTitle("Restaurants")
             }
         }
-        
     }
 }
 

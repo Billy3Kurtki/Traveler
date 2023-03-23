@@ -8,12 +8,13 @@
 import Foundation
 
 final class RestaurantSnippetViewModel {
-    let id = UUID()
+    let id: String
     let name: String
     let fullAddress: String
     let points: Float?
     
-    init(name: String, country: String, city: String, street: String, points: Float) {
+    init(id: String, name: String, country: String, city: String, street: String, points: Float) {
+        self.id = id
         self.name = name
         self.fullAddress = "\(country), \(city), \(street)."
         self.points = points

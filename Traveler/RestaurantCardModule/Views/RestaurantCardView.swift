@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RestaurantCardView: View {
-    var restaurant: RestaurantModel
+    var restaurant: RestaurantCardViewModel
     
     var body: some View {
         ScrollView {
@@ -38,12 +38,12 @@ struct RestaurantCardView: View {
                     })
                 VStack {
                     HStack {
-                        Text("\(restaurant.country), \(restaurant.city), \(restaurant.street)")
+                        Text(restaurant.address)
                         Spacer()
                     }
-                    NavigationLink(destination: RestaurantMapView(restaurant: RestaurantMapViewModel(restaurant: restaurant))
+                    NavigationLink(destination: RestaurantMapView(restaurant: RestaurantMapViewModel(id: restaurant.id))
                         .ignoresSafeArea(.all), label: {
-                            RestaurantMiniMapView(restaurant: RestaurantMapViewModel(restaurant: restaurant))
+                            RestaurantMiniMapView(restaurant: RestaurantMapViewModel(id: restaurant.id))
                                 .frame(width: 300, height: 300)
                                 .border(Color.gray, width: 1)
                                 .allowsHitTesting(false)
