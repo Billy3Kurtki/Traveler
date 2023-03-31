@@ -19,35 +19,13 @@ struct RestaurantCardView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }.padding(.leading, Consts.paddingLow)
-                TabView(selection: $selectedImageIndex) {
-                    ForEach(0..<restaurant.images.count) { image in
-                        Image("\(restaurant.images[image].url)")
-                            .resizable()
-                            .scaledToFill()
-                            .overlay(Color.black.opacity(0.4))
-                    }
-                }.tabViewStyle(PageTabViewStyle())
-                    .clipShape(RoundedRectangle(cornerRadius: 3))
-                    .padding()
-                    .frame(width: 390, height: 250)
-                    .onReceive(timer, perform: { _ in
-                        withAnimation {
-                            selectedImageIndex = selectedImageIndex < restaurant.images.count ? selectedImageIndex + 1 : 0
-                        }
-                        
-                    })
+                ImageTabView(with: restaurant)
                 VStack {
                     HStack {
                         Text(restaurant.address)
                         Spacer()
                     }
-                    NavigationLink(destination: RestaurantMapView(restaurant: RestaurantMapViewModel(id: restaurant.id))
-                        .ignoresSafeArea(.all), label: {
-                            RestaurantMiniMapView(restaurant: RestaurantMapViewModel(id: restaurant.id))
-                                .frame(width: 300, height: 300)
-                                .border(Color.gray, width: 1)
-                                .allowsHitTesting(false)
-                        })
+                    MiniMapView(with: restaurant)
                     Spacer()
                 }.padding()
                 HStack {
@@ -56,22 +34,62 @@ struct RestaurantCardView: View {
                         .foregroundColor(.black)
                     Spacer()
                 }.padding(.leading, Consts.paddingMedium)
-                Text(restaurant.description)
-                    .onTapGesture {
-                        self.showFullText = true
-                    }
-                    .frame(width: 350, height: showFullText ? nil : Layout.unrolledTextHeight)
-                    .truncationMode(.tail)
-                HStack {
-                    Button(action: {
-                        self.showFullText = false
-                    }) {
-                        Text("Скрыть")
-                    }.opacity(showFullText ? Layout.opacityFull : Layout.opacityNull)
-                    Spacer()
-                }.padding(.leading, Consts.paddingLow)
+                DescriptionView(with: restaurant)
             }.padding()
         }
+    }
+    
+    @State private var showFullText = false
+    @State private var selectedImageIndex = 0
+    @State private var timer = Timer.publish(every: Consts.timerPeriod, on: .main, in: .common).autoconnect()
+    
+    private func ImageTabView(with vm: RestaurantCardViewModel) -> some View {
+        TabView(selection: $selectedImageIndex) {
+            ForEach(0..<vm.images.count) { image in
+                Image("\(vm.images[image].url)")
+                    .resizable()
+                    .scaledToFill()
+                    .overlay(Color.black.opacity(0.4))
+            }
+        }.tabViewStyle(PageTabViewStyle())
+            .clipShape(RoundedRectangle(cornerRadius: 3))
+            .padding()
+            .frame(width: 390, height: 250)
+            .onReceive(timer, perform: { _ in
+                withAnimation {
+                    selectedImageIndex = selectedImageIndex < vm.images.count ? selectedImageIndex + 1 : 0
+                }
+            })
+    }
+    
+    private func MiniMapView(with vm: RestaurantCardViewModel) -> some View {
+        NavigationLink(destination: RestaurantMapView(restaurant: RestaurantMapViewModel(id: vm.id))
+            .ignoresSafeArea(.all), label: {
+                RestaurantMiniMapView(restaurant: RestaurantMapViewModel(id: vm.id))
+                    .frame(width: 300, height: 300)
+                    .border(Color.gray, width: 1)
+                    .allowsHitTesting(false)
+            })
+    }
+    
+    private func DescriptionView(with vm: RestaurantCardViewModel) -> some View {
+        VStack {
+            Text(vm.description)
+                .onTapGesture {
+                    self.showFullText = true
+                }
+                .frame(width: 350, height: showFullText ? nil : Layout.unrolledTextHeight)
+                .truncationMode(.tail)
+            HStack {
+                Button(action: {
+                    self.showFullText = false
+                }) {
+                    Text("Скрыть")
+                }.opacity(showFullText ? Layout.opacityFull : Layout.opacityNull)
+                Spacer()
+            }.padding(.leading, Consts.paddingLow)
+        }
+        
     }
     private enum Layout {
         static let opacityFull: CGFloat = 1
@@ -84,8 +102,6 @@ struct RestaurantCardView: View {
         static let paddingMedium: CGFloat = 30
         static let timerPeriod: CFTimeInterval = 3
     }
-    @State private var showFullText = false
-    @State private var selectedImageIndex = 0
-    @State private var timer = Timer.publish(every: Consts.timerPeriod, on: .main, in: .common).autoconnect()
 }
+
 
